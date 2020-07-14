@@ -1,0 +1,16 @@
+.picture-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .picture-item {
+    width: calc((100% - #{$component-span * 3}) / 4);
+    margin-bottom: $component-span;
+    &:not(:nth-child(4)) {
+      margin-right: $component-span;
+    }
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+}

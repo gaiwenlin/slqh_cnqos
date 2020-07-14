@@ -1,0 +1,69 @@
+<template>
+  <portlet>
+    <div class="clearfix margin-bottom-1">
+      <div class="pull-right">
+        <i-button border circle scene="primary" icon="add" @click="create">
+          {{templateStart}}$t('app.common.action.create'){{templateEnd}}
+        </i-button>
+      </div>
+    </div>
+    <div>
+      <i-form type="inline">
+        <form-item>
+          <i-input v-model="filterParams.name"
+                   class="width-em30"
+                   clearable
+                   :placeholder="$t('core.placeholder', { 0: $t('app.common.property.keyword') })"></i-input>
+        </form-item>
+        <form-item>
+          <i-button border circle scene="primary" icon="search" @click="search">{{templateStart}}$t('app.common.action.search'){{templateEnd}}</i-button>
+        </form-item>
+      </i-form>
+    </div>
+    <div class="data-table-container margin-bottom-1">
+      <i-table class="data-table"
+               :data="items"
+               v-loading="loading"
+               border>
+        <table-column min-width="120" prop="name" :label="$t('app.common.property.name')"></table-column>
+        <table-column width="190" :label="$t('app.common.property.creationTime')">
+          <template slot-scope="scope">
+            {{templateStart}}scope.row.creationTime|momentFormat{{templateEnd}}
+          </template>
+        </table-column>
+        <table-column :label="$t('app.common.action.actions')">
+          <template slot-scope="scope">
+            <i-button border circle scene="primary" @click="edit(scope.row)">
+              {{templateStart}}$t('app.common.action.edit'){{templateEnd}}
+            </i-button>
+            <i-button border circle scene="danger" @click="deleteItem(scope.row)">{{templateStart}}$t('app.common.action.delete'){{templateEnd}}</i-button>
+          </template>
+        </table-column>
+      </i-table>
+    </div>
+    <Pagination :total="totalCount" :current="filterParams.pageIndex" :page-size="filterParams.pageSize" show-elevator @change="handlePageChange"></Pagination>
+    <CreateOrUpdateModal :id="dialogCreateOrEdit.id" v-model="dialogCreateOrEdit.isShow" @save="handleOnSave"></CreateOrUpdateModal>
+  </portlet>
+</template>
+
+<script>
+  import {{name}}Api from '../../../../apis/application/{{name}}';
+  import CreateOrUpdateModal from './CreateOrUpdateModal';
+  import CommonCreateAndUpdateModalList from '../../../mixins/CommonCreateAndUpdateModalList';
+
+  export default {
+    name: '{{properCase name}}Index',
+    mixins: [CommonCreateAndUpdateModalList],
+    components: {
+      CreateOrUpdateModal
+    },
+    data () {
+      return {
+        api: {{name}}Api,
+        filterParams: {
+          name: null
+        }
+      };
+    }
+  };
+</script>

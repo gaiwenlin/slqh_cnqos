@@ -1,0 +1,5 @@
+/build/
+/config/
+/dist/
+
+/src/vendor/jweixin-1.0.0.js

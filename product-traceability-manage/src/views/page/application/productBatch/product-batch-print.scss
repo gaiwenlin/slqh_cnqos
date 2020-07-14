@@ -1,0 +1,11 @@
+@import "~canknow-ui-core/src/scss/variables";
+.product-batch-print-content-wrap {
+  text-align: center;
+  padding-bottom: $content-padding;
+  display: flex;
+  justify-content: center;
+  .product-batch-print-content {
+    width: 250px;
+    height: 150px;
+  }
+}

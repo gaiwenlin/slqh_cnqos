@@ -1,0 +1,89 @@
+@import "./../../../../styles/variables";
+@import "~canknow-ui-core/src/scss/mixins/flex";
+@import "~canknow-ui-core/src/scss/mixins/breakpoints";
+
+.drawer-bg {
+  background: black;
+  opacity: 0.3;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  position: absolute;
+  z-index: 99;
+}
+
+.page{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+
+  &.hideSidebar {
+    .page-sidebar {
+      width: $collapse-sidebar-width;
+    }
+
+    .page-body {
+      margin-left: $collapse-sidebar-width;
+    }
+
+    .fixed-header {
+      width: calc(100% - #{$collapse-sidebar-width})
+    }
+  }
+
+  .fixed-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    width: calc(100% - #{$sidebar-width});
+    transition: $transition-time;
+  }
+
+  .page-body {
+    transition: margin-left $transition-time;
+    margin-left: $sidebar-width;
+    position: relative;
+    min-height: 100%;
+
+    .page-content-wrap {
+      position: relative;
+      padding-top: 100px;
+
+      .page-content {
+        padding: $content-padding;
+      }
+      &.no-sidebar {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &.mobile {
+    &.openSidebar {
+      position: fixed;
+      top: 0;
+    }
+    &.hideSidebar {
+      .page-sidebar {
+        pointer-events: none;
+        transition-duration: $transition-time;
+        transform: translate3d(-$sidebar-width,0,0);
+      }
+    }
+    .page-body {
+      margin-left: 0 !important;
+    }
+
+    .fixed-header {
+      width: 100%;
+    }
+  }
+}
+
+.user-block-dropdown{
+  .dropdown {
+    width: 100%;
+  }
+}

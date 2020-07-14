@@ -1,0 +1,61 @@
+@import "~canknow-ui/src/scss/variables";
+@import "~canknow-ui-core/src/scss/mixins/clearfix";
+@import "~canknow-ui-core/src/scss/mixins/text-ellipsis";
+.file-list{
+  list-style-type: none;
+  padding-left: 0;
+  @include clearfix;
+  .file-item{
+    float: left;
+    width: 20rem;
+    padding: $text-span;
+    position: relative;
+    .checkbox{
+      position: absolute;
+      z-index: 1;
+      top: $content-padding;
+      right: $content-padding;
+    }
+    .file-cover-wrap{
+      height: 15rem;
+      overflow: hidden;
+      margin-bottom: $component-span;
+      .file-cover{
+        display: block;
+        margin: 0 auto;
+        height: 100%;
+        &.common-file-cover{
+          background-color: $background;
+          display: flex;
+          align-content: center;
+          align-items: center;
+          justify-content: center;
+          padding: $content-padding;
+          .file-extension {
+            font-size: $font-size-large;
+            color: $property-text-color;
+            font-weight: bold;
+            word-break: break-all;
+            text-align: center;
+            user-select: none;
+          }
+        }
+      }
+    }
+    .file-body{
+      .file-title{
+        font-size: $font-size;
+        margin-bottom: $component-span;
+        text-align: center;
+        display: block;
+        @include text-ellipsis;
+      }
+      .creation-time-wrap{
+        text-align: center;
+        .creation-time{
+          color:$sub-color;
+        }
+      }
+    }
+  }
+}

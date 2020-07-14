@@ -1,0 +1,13 @@
+{
+  "fullScreen": {
+    "notSupport": "您的浏览器不支持该操作"
+  },
+  "globalSize": {
+    "globalSize": "布局大小",
+    "switchSizeSuccess": "布局大小切换成功",
+    "large": "大",
+    "medium": "中等",
+    "small": "小",
+    "smaller": "很小"
+  }
+}

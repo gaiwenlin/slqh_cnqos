@@ -1,0 +1,8 @@
+@import "~canknow-ui/src/scss/variables";
+
+.text-previewer{
+  display: block;
+  white-space: pre-wrap;
+  border: $border-width solid $border-color;
+  width: 100%;
+}

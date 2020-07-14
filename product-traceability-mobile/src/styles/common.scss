@@ -1,0 +1,41 @@
+.price-sign {
+  font-size: 80%;
+}
+
+.upload-group {
+  background: #ffffff;
+  padding: $content-padding;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  .upload-item {
+    .form-group-body {
+      margin-left: 0 !important;
+    }
+    .upload-item-title {
+      text-align: center;
+      margin: 0;
+      font-size: $font-size-small;
+      color: $property-text-color;
+      font-weight: normal;
+      user-select: none;
+    }
+  }
+}
+
+.pre-text {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.detailed-list-help {
+  line-height: 2;
+  font-size: $font-size-small;
+  color: $sub-color;
+}
+
+
+*{
+  -webkit-overflow-scrolling: touch;
+}

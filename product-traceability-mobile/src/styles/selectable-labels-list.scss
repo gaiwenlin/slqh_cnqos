@@ -1,0 +1,26 @@
+.selectable-labels {
+  display: flex;
+  align-items: center;
+  &-title {
+    margin-right: $component-span;
+  }
+  &-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      padding: $content-padding;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      &:not(:last-child) {
+        margin-right: $component-span;
+      }
+      &.active {
+        background: url(http://m.hpdp.cn/statics/images/gouxuan.png) no-repeat right bottom;
+        background-size: 15px;
+        border: 1px solid $important-color;
+      }
+    }
+  }
+}

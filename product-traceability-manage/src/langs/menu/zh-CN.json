@@ -1,0 +1,31 @@
+{
+  "dashboard": "首页",
+  "system": "系统管理",
+  "profile": {
+    "profile": "我的资料",
+    "changePassword": "修改密码"
+  },
+  "account": {
+    "userLoginAttempt": "用户登录记录"
+  },
+  "enterprise": "企业管理",
+  "role": "角色管理",
+  "user": "用户管理",
+  "language": {
+    "language": "语言管理"
+  },
+  "file": "文件管理",
+  "setting": "配置管理",
+  "productCategory": "分类管理",
+  "product": "产品管理",
+  "productBatch": "批次管理",
+  "certification": "认证管理",
+  "growthProcess": "生长过程",
+  "produceProcess": "加工过程",
+  "traceability": "溯源管理",
+  "baseData": "基础数据",
+  "me": {
+    "me": "我的",
+    "enterprise": "我的企业"
+  }
+}

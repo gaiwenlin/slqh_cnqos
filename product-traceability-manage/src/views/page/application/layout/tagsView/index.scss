@@ -1,0 +1,77 @@
+@import "./../../../../../styles/variables";
+
+.tags-view-container {
+  width: 100%;
+  background: #fff;
+  padding: 2px $content-padding;
+
+  .tags-view-wrapper {
+
+    .tags-view-item {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      height: $component-size;
+      color: $sub-color;
+      background: #fff;
+      padding: 0 $content-padding;
+      font-size: $font-size-small;
+      user-select: none;
+      border: 1px solid $split-color;
+      border-radius: $border-radius;
+      &:not(:last-child) {
+        margin-right: $text-span;
+      }
+
+      &.active {
+        background-color: $background;
+        color: $title-text-color;
+        border-color: transparent;
+        &::before {
+          content: '';
+          background: $primary-color;
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          position: relative;
+          margin-right: $text-span;
+        }
+      }
+      &-close-button {
+        text-align: center;
+        margin-left: $text-span;
+        color: $icon-color;
+        .icon {
+          display: block;
+          font-size: $space-half;
+        }
+        &:hover {
+          color: $title-text-color;
+        }
+      }
+    }
+  }
+  .contextmenu {
+    margin: 0;
+    background: #fff;
+    z-index: 3000;
+    position: absolute;
+    list-style-type: none;
+    padding: $text-padding 0;
+    border-radius: $border-radius;
+    font-size: $font-size-small;
+    font-weight: 400;
+    color: $title-text-color;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .3);
+    li {
+      margin: 0;
+      padding: $text-padding $content-padding;
+      cursor: pointer;
+      &:hover {
+        background: $background;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+pipeline {
+   agent any
+   stages {
+     stage('Checkout') {
+        steps {
+         checkout([
+            $class: 'GitSCM',
+            branches: [[name: env.GIT_BUILD_REF]],
+            userRemoteConfigs: [[url: env.GIT_REPO_URL, credentialsId: env.CREDENTIALS_ID]]
+          ])
+        }
+     }
+     stage('install') {
+       steps {
+         sh 'node -v'
+         sh 'npm install cnpm -g'
+         sh 'cnpm install'
+       }
+     }
+     stage('lint') {
+       steps {
+         sh 'npm run lint'
+       }
+     }
+     stage('Build') {
+       steps {
+          sh 'npm run build'
+       }
+     }
+     stage('Deploy') {
+       steps {
+         script {
+            imageName = "canknow-docker.pkg.coding.net/${env.DEPOT_NAME}/docker/${env.DEPOT_NAME}:${env.GIT_COMMIT}"
+            docker.build(imageName)
+            // 推送 Docker 镜像到仓库
+            docker.withRegistry("https://canknow-docker.pkg.coding.net", CODING_ARTIFACTS_CREDENTIALS_ID) {
+              docker.image(imageName).push()
+            }
+          }
+       }
+     }
+   }
+ }

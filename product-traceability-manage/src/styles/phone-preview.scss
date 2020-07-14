@@ -1,0 +1,49 @@
+@import "~canknow-ui/src/scss/variables";
+.phone-preview{
+  width: 32rem;
+  height: auto;
+  border: $border-width solid $border-color;
+  border-radius: $content-padding;
+  background: #fff;
+  padding: $content-padding;
+  overflow: hidden;
+  .phone-head{
+    height: $component-size-large;
+    background: #fff;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 112px;
+      height: 8px;
+      width: 8px;
+      background: #ddd;
+      border-radius: 8px;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 128px;
+      height: 8px;
+      width: 50px;
+      background: #ddd;
+      border-radius: 8px;
+    }
+  }
+  .phone-body{
+    border: $border-width solid $border-color;
+   /* background-image: url(./../assets/images/app-topbar.png);*/
+    background-color: $app-background;
+    background-size: 100%;
+    min-height: 40rem;
+  }
+  .phone-footer{
+    height: $component-size-small;
+    width: $component-size-larger;
+    margin: $component-span auto $text-span;
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+  }
+}

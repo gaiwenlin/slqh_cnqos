@@ -1,0 +1,47 @@
+@import "./variables";
+@import "~canknow-ui-core/src/scss/mixins/flex";
+
+$app-background: #f2f3f8;
+.admin-page {
+  background-color: $app-background;
+  .page-header {
+    background: $page-header-color;
+
+    .page-header-right-wrap {
+      .page-header-right-menu {
+        display: flex;
+        align-items: center;
+        line-height: $page-header-height;
+        .page-header-right-menu-item {
+          padding: 0 $content-padding;
+          font-size: $font-size-large;
+          color: #ffffff;
+
+          &.hover-effect {
+            cursor: pointer;
+            transition: background $transition-time;
+
+            &:hover {
+              background: rgba(0, 0, 0, .025)
+            }
+          }
+        }
+      }
+    }
+  }
+  .page-body {
+    background-color: $app-background;
+  }
+}
+
+.admin-page-content-header{
+  @include flex-horizontal-align-center;
+  margin-bottom: $component-span;
+  .admin-page-content-title{
+    @include flex-adapter;
+    display: block;
+  }
+  .admin-page-content-action-bar{
+
+  }
+}

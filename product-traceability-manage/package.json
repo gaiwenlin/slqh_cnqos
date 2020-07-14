@@ -1,0 +1,108 @@
+{
+  "name": "product-traceability-manage",
+  "version": "1.0.3",
+  "description": "A Vue.js application project",
+  "author": "canknow <3230525823@qq.com>",
+  "private": true,
+  "scripts": {
+    "new": "plop",
+    "bootstrap": "npm install || cnpm install",
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "preview": "node build/index.js --preview",
+    "lint": "vue-cli-service lint src",
+    "lint:fix": "vue-cli-service lint --fix src",
+    "clean": "rimraf dist",
+    "test:unit": "jest --clearCache && vue-cli-service test:unit",
+    "test:ci": "npm run lint && npm run test:unit",
+    "report": "npm run build --report",
+    "analyz": "NODE_ENV=production npm_config_report=true npm run build",
+    "deploy": "node build/deploy.js",
+    "tag": "git push --follow-tags",
+    "major": "npm version major && npm run tag",
+    "minor": "npm version minor && npm run tag",
+    "patch": "npm version patch && npm run tag"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,vue}": [
+      "npm run lint:fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "awe-dnd": "^0.3.1",
+    "axios": "^0.18.0",
+    "canknow-core": "^3.1.1",
+    "canknow-icon": "^3.1.9",
+    "canknow-ui": "^2.1.17",
+    "canknow-ui-core": "^7.3.9",
+    "html2canvas": "^1.0.0-rc.5",
+    "js-cookie": "^2.2.0",
+    "moment": "^2.18.1",
+    "path-to-regexp": "^6.1.0",
+    "register-service-worker": "^1.7.1",
+    "screenfull": "^5.0.2",
+    "vue": "^2.6.11",
+    "vue-i18n": "^8.14.0",
+    "vue-print-nb": "^1.5.0",
+    "vue-qart": "^2.1.1",
+    "vue-qr": "^2.2.1",
+    "vue-router": "^3.0.6",
+    "vuedraggable": "^2.16.0",
+    "vuex": "3.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-function-bind": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/register": "7.0.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-plugin-unit-jest": "3.5.3",
+    "@vue/cli-service": "^3.8.0",
+    "babel-eslint": "^10.0.1",
+    "chalk": "2.4.2",
+    "chokidar": "2.1.5",
+    "connect": "3.6.6",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "gulp": "^4.0.2",
+    "html-webpack-plugin": "3.2.0",
+    "husky": "^4.2.5",
+    "lint-staged": "8.1.5",
+    "node-sass": "^4.14.1",
+    "plop": "2.3.0",
+    "runjs": "^4.3.2",
+    "sass-loader": "^7.1.0",
+    "script-ext-html-webpack-plugin": "2.1.3",
+    "script-loader": "0.7.2",
+    "serve-static": "^1.13.2",
+    "vue-property-decorator": "^7.0.0",
+    "vue-template-compiler": "2.6.11"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "engines": {
+    "node": ">=8.9.4",
+    "npm": ">= 3.0.0"
+  }
+}

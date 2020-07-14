@@ -1,0 +1,12 @@
+@import "~canknow-ui/src/scss/variables";
+@import "~canknow-ui-core/src/scss/mixins/flex";
+.file-manage{
+  @include flex-horizontal;
+  .file-manage-sidebar{
+    width: 300px;
+  }
+  .file-manage-body{
+    padding:$content-padding;
+    @include flex-adapter;
+  }
+}

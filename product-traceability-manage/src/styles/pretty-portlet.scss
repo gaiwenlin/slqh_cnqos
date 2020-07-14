@@ -1,0 +1,18 @@
+@import "~canknow-ui/src/scss/variables";
+.portlet{
+  &.pretty-portlet{
+    border-color:transparent;
+    .portlet-header{
+      background-color: transparent;
+      border-bottom: 5px solid $primary-color;
+      .portlet-title{
+        font-weight: bold;
+        color: $primary-color;
+        font-size: $font-size-small;
+      }
+    }
+    .portlet-body{
+      padding: 0;
+    }
+  }
+}

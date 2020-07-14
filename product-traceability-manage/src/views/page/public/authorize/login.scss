@@ -1,0 +1,16 @@
+@import "~canknow-ui/src/scss/variables";
+.login-page{
+  background-image: url(../../../../assets/images/login_bg.png);
+  padding: 0 $content-padding;
+  .login-box{
+    padding: $content-padding-large;
+    background: #fff;
+    border-radius: $component-size-small;
+    .login-title {
+      text-align: center;
+      font-weight: bold;
+      user-select: none;
+      font-size: $font-size-huge;
+    }
+  }
+}

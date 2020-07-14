@@ -1,0 +1,24 @@
+@import '~canknow-icon/src/component/icon/src/icon.scss';
+@import "./variables";
+
+@import "admin-page";
+@import "file-list";
+@import "file-manage";
+@import "color-selector";
+@import "language-list";
+@import "text-previewer";
+@import "phone-preview";
+@import "media";
+@import "picture-uploader";
+@import "pretty-portlet";
+@import "data-overview";
+@import "price-table";
+
+html, body {
+  min-height: initial !important;
+  height: 100%;
+}
+
+.app-wrap {
+  height: 100%;
+}

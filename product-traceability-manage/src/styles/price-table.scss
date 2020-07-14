@@ -1,0 +1,52 @@
+@import "~canknow-ui/src/scss/variables";
+
+.price-table {
+  display: flex;
+  justify-content: center;
+  .price-table-item {
+    padding: $component-span-larger !important;
+    &:not(:last-child) {
+      border-right: $border-width solid $border-color;
+    }
+    .price-table-item-free-bar {
+      color: #6ed19c;
+    }
+    .price-table-item-title {
+      color: #E25A77;
+      font-weight: 200;
+      text-align: center;
+      margin-bottom: $component-span-larger;
+      &:nth-child(1) {
+        color: #E25ABC;
+      }
+      &:nth-child(2) {
+        color: #7E5AE2;
+      }
+    }
+
+    .price-table-item-price-bar {
+      .price-table-item-price-sign {
+        font-size: $font-size-largest;
+      }
+      .price-table-item-price-value {
+        font-size: $font-size-huger;
+        color: $price-color;
+        font-weight: bold;
+      }
+      .price-table-item-price-per {
+        font-size: $font-size-largest;
+      }
+    }
+
+    .price-table-item-features {
+      margin-bottom: $component-span-large;
+      .price-table-item-feature {
+
+      }
+    }
+
+    .price-table-item-footer {
+
+    }
+  }
+}

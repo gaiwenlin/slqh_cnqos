@@ -1,0 +1,69 @@
+{
+  "productCategory": {
+    "productCategory": "产品分类"
+  },
+  "product": {
+    "name": "产品名称",
+    "product": "产品",
+    "specification": "产品规格",
+    "description": "产品描述",
+    "standardName": "标准名称",
+    "standardNo": "标准编号",
+    "standardDescription": "标准解读",
+    "originEnterprise": "源产地",
+    "factoryEnterprise": "加工工厂",
+    "produceProcess": "生产过程",
+    "growthProcess": "生长过程",
+    "productCategory": "产品分类",
+    "photos": "产品图片",
+    "video": "产品视频",
+    "certifications": "产品证书",
+    "enterprise": "所属企业"
+  },
+  "enterprise": {
+    "enterprise": "企业",
+    "name": "企业名称",
+    "address": "企业地址",
+    "telephone": "企业电话",
+    "description": "企业说明",
+    "additionalInformation": "扩展信息",
+    "photos": "企业照片",
+    "parentEnterprise": "上级企业"
+  },
+  "productBatch": {
+    "productBatch": "批次",
+    "batchNumber": "批号",
+    "productSpecification": "产品规格",
+    "productName": "产品名称",
+    "product": "产品",
+    "produceDateTime": "生产日期",
+    "name": "企业名称",
+    "testReport": "抽检报告",
+    "printNum": "打印数"
+  },
+  "certification": {
+    "certification": "认证",
+    "license": "认证证书",
+    "logo": "认证标志"
+  },
+  "growthProcess": {
+    "growthProcess": "生长过程",
+    "productCategory": "产品分类",
+    "enterprise": "企业",
+    "steps": "步骤",
+    "step": {
+      "name": "步骤名称",
+      "picture": "步骤图片"
+    }
+  },
+  "produceProcess": {
+    "produceProcess": "生产过程",
+    "productCategory": "产品分类",
+    "enterprise": "企业",
+    "steps": "步骤",
+    "step": {
+      "name": "步骤名称",
+      "picture": "步骤图片"
+    }
+  }
+}

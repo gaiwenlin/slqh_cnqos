@@ -1,0 +1,57 @@
+{
+  "id": "", // productBatch id
+  "produceDateTime": "",
+  "productName": "",
+  "productSpecification": "",
+  "testReport": "",
+  "product": {
+    "id": "",
+    "name": "",
+    "description": "",
+    "video": "",
+    "standardNo": "",
+    "specification": "",
+    "productCategoryId": "",
+    "produceProcessId": "",
+    "photos": "",
+    "originEnterpriseId": "",
+    "originEnterprise": {
+      "id": "",
+      "name": ""
+    },
+    "growthProcessId": "",
+    "factoryEnterpriseId": "",
+    "factoryEnterprise": {
+      "id": "",
+      "name": ""
+    },
+    "growthProcess": {
+      "name": "",
+      "steps": [
+        {
+          "name": "",
+          "picture": ""
+        }
+      ]
+    },
+    "productProcess": {
+      "name": "",
+      "steps": [
+        {
+          "name": "",
+          "picture": ""
+        }
+      ]
+    },
+    "enterpriseId": "",
+    "certificationIds": "5,7",
+    "certifications": [{
+      "id": "",
+      "name": "",
+      "logo": "",
+      "license": ""
+    }]
+  }
+}
+
+// /productBatch/detail?id=1

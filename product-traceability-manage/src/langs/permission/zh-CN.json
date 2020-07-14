@@ -1,0 +1,89 @@
+{
+  "file": {
+    "file": "文件",
+    "upload": "上传"
+  },
+  "certification": {
+    "certification": "证书",
+    "create": "创建",
+    "update": "更新",
+    "delete": "删除",
+    "getAllByPage": "分页查询",
+    "get": "获取",
+    "getAll": "查询所有"
+  },
+  "enterprise": {
+    "enterprise": "企业",
+    "create": "创建",
+    "update": "更新",
+    "delete": "删除",
+    "getAllByPage": "分页查询",
+    "get": "获取",
+    "getAll": "查询所有",
+    "getParent": "获取上级企业"
+  },
+  "growthProcess": {
+    "growthProcess": "生长过程",
+    "create": "创建",
+    "update": "更新",
+    "delete": "删除",
+    "getAllByPage": "分页查询",
+    "get": "获取",
+    "getAll": "查询所有"
+  },
+  "produceProcess": {
+    "produceProcess": "生产过程",
+    "create": "创建",
+    "update": "更新",
+    "delete": "删除",
+    "getAllByPage": "分页查询",
+    "get": "获取",
+    "getAll": "查询所有"
+  },
+  "productCategory": {
+    "productCategory": "产品分类",
+    "create": "创建",
+    "update": "更新",
+    "delete": "删除",
+    "getAllByPage": "分页查询",
+    "get": "获取",
+    "getAll": "查询所有"
+  },
+  "product": {
+    "product": "产品",
+    "create": "创建",
+    "update": "更新",
+    "delete": "删除",
+    "getAllByPage": "分页查询",
+    "get": "获取",
+    "getAll": "查询所有"
+  },
+  "productBatch": {
+    "productBatch": "产品批次",
+    "create": "创建",
+    "update": "更新",
+    "delete": "删除",
+    "getAllByPage": "分页查询",
+    "get": "获取",
+    "getAll": "查询所有",
+    "updatePrintNum": "更新打印数"
+  },
+  "role": {
+    "role": "角色",
+    "create": "创建",
+    "update": "更新",
+    "delete": "删除",
+    "getAllByPage": "分页查询",
+    "get": "获取",
+    "getAll": "查询所有"
+  },
+  "user": {
+    "user": "用户",
+    "create": "创建",
+    "update": "更新",
+    "delete": "删除",
+    "getAllByPage": "分页查询",
+    "get": "获取",
+    "getAll": "查询所有"
+  }
+}

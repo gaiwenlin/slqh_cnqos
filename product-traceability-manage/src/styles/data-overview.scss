@@ -1,0 +1,30 @@
+@import "~canknow-ui-core/src/scss/mixins/clearfix";
+@import "~canknow-ui/src/scss/variables";
+.data-overview {
+  float: left;
+  .data-overview-wrap{
+    width: $component-size-huger;
+    height: $component-size-huger;
+    border-radius: $component-size-huger;
+    text-align: center;
+    line-height: $component-size-huger;
+    margin-bottom: $component-span;
+    border: $border-width solid $important-color;
+    &:not(:last-child){
+      margin-right: $component-span;
+    }
+  }
+  .data-value{
+    font-size: $font-size-larger;
+    font-weight: bold;
+  }
+  .data-name {
+    display: block;
+    text-align: center;
+  }
+}
+.data-overview-list {
+  list-style: none;
+  padding-left: 0;
+  @include clearfix;
+}

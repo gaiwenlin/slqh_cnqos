@@ -1,0 +1,23 @@
+@import "~canknow-ui/src/scss/variables";
+.page-tag-bar{
+  box-shadow: 0 2px 1px 1px rgba(100, 100, 100, 0.1);
+  .tags-container{
+    height: $component-size-large;
+    line-height: $component-size-large;
+    z-index: -1;
+    overflow: hidden;
+    background: #fff;
+    .tags-outer-scroll-container{
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      .tags-inner-scroll-body{
+        position: absolute;
+        overflow: visible;
+        white-space: nowrap;
+        transition: left .3s ease;
+      }
+    }
+  }
+}

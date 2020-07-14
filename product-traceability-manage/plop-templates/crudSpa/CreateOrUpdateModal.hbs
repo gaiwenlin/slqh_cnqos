@@ -1,0 +1,31 @@
+<template>
+  <Modal v-model="dialogVisible" @cancel="handleCancel" :title="$t('core.crud.createOrEdit', { 0: $t('app.application.{{name}}.{{name}}') })">
+    <i-form :model="model" :rules="rules" ref="form" :label-width="100">
+      <form-item :label="$t('app.common.property.name')" prop="name">
+        <i-input name="name" v-model="model.name" block></i-input>
+      </form-item>
+    </i-form>
+    <template slot="footer">
+      <i-button size="large" border circle icon="back" @click="handleCancel">{{templateStart}}$t('app.common.action.cancel'){{templateEnd}}</i-button>
+      <i-button size="large" circle border :loading="saving" icon="success" scene="primary" @click="save">{{templateStart}}$t('app.common.action.save'){{templateEnd}}</i-button>
+    </template>
+  </Modal>
+</template>
+
+<script>
+  import {{name}}Api from '../../../../apis/application/{{name}}';
+  import CommonCreateOrUpdateModal from '../../../mixins/CommonCreateOrUpdateModal';
+
+  export default {
+    name: 'CreateOrUpdateModal',
+    mixins: [CommonCreateOrUpdateModal],
+    data () {
+      return {
+        api: {{name}}Api,
+        rules: {
+          name: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.common.property.name') }) }],
+        }
+      };
+    }
+  };
+</script>

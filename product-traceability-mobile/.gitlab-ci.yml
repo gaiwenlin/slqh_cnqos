@@ -1,0 +1,24 @@
+image: docker:latest
+
+variables:
+  DOCKER_DRIVER: overlay
+  CONTAINER_IMAGE: registry.gitlab.com/canknow
+  DOCKER_IMAGE: delegate-auction-mobile
+
+services:
+  - docker:dind
+
+stages:
+  - build
+
+before_script:
+  - export IMAGE_TAG=$(echo -en $CI_COMMIT_REF_NAME | tr -c '[:alnum:]_.-' '-')
+  - export IMAGE_NAME=$CONTAINER_IMAGE/$DOCKER_IMAGE:$IMAGE_TAG
+  - export RELEASE_IMAGE_NAME=$CONTAINER_IMAGE/$DOCKER_IMAGE:latest
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+build:
+  stage: build
+  script:
+    - docker build -t $IMAGE_NAME .
+    - docker push $IMAGE_NAME

@@ -1,0 +1,18 @@
+export default {
+  path: '{{ name}}',
+  name: '{{ name}}',
+  component: ()=> import('../../../views/page/application/{{ name}}/Index.vue'),
+  meta: {
+    localizationTitle: 'menu.{{ name}}'
+  },
+  children: [
+    {
+      path: 'index',
+      name: '{{ name}}Index',
+      meta: {
+        localizationTitle: 'menu.{{ name}}'
+      },
+      component: ()=> import('../../../views/page/application/{{ name}}/Index.vue')
+    }
+  ]
+};
