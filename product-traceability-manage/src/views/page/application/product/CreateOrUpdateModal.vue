@@ -32,6 +32,9 @@
             <form-item :label="$t('app.application.product.description')" prop="description">
               <i-input :rows="5" maxlength="200" show-word-limit type="textarea" name="description" v-model="model.description" block></i-input>
             </form-item>
+            <form-item :label="$t('app.application.product.edibleMethod')" prop="edibleMethod">
+              <i-input :rows="5" maxlength="200" show-word-limit type="textarea" name="edibleMethod" v-model="model.edibleMethod" block></i-input>
+            </form-item>
             <form-item :label="$t('app.application.product.photos')" prop="photos">
               <pictures-uploader name="photos" v-model="model.photos" block></pictures-uploader>
             </form-item>
