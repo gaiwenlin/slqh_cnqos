@@ -20,6 +20,13 @@
           <!--</column>-->
         <!--</row>-->
       <!--</form-item>-->
+      <form-item label="打印大小">
+        <i-select v-model="printerSize" placeholder="请选择打印机">
+          <i-option :value="'50,20'">50mm * 20mm</i-option>
+          <i-option :value="'70,40'">70mm * 40mm</i-option>
+          <i-option :value="'90,50'">90mm * 50mm</i-option>
+        </i-select>
+      </form-item>
       <form-item label="打印机">
         <i-select v-model="printerIndex" placeholder="请选择打印机">
           <i-option :key="index" :value="item.value" v-for="(item, index) in printers">{{item.label}}</i-option>
@@ -80,6 +87,7 @@
         count: 1,
         printers: [],
         printerLoadError: null,
+        printerSize: "50,20",
         printText: '生产有记录,流向可追踪,质量可追溯',
         printerIndex: localStorage.getItem('productBatchPrinterIndex') ? parseInt(localStorage.getItem('productBatchPrinterIndex')) : 0,
         dialogVisible: this.visible,
@@ -174,7 +182,7 @@
         this.LODOP.SET_PRINTER_INDEX(this.printerIndex);
         this.LODOP.SET_PRINT_MODE('POS_BASEON_PAPER', true); //设置以纸张边缘为基点
         this.LODOP.SET_PREVIEW_WINDOW(0, 1, 1);
-        this.LODOP.SET_PRINT_PAGESIZE(1, '50mm', '20mm');
+        this.LODOP.SET_PRINT_PAGESIZE(1, this.printerSize.split(',')[0] + 'mm', this.printerSize.split(',')[1] + 'mm');
         this.LODOP.SET_PRINT_COPIES(this.count);
         // this.$refs.productBatchPrintLogo.style.opacity = 0;
         // let printTextHtml = `<link type="text/css" rel="stylesheet" href="/static/product-batch-print.css?version=${Date.now()}">`;
