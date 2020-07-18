@@ -4,6 +4,9 @@
       <form-item :label="$t('app.common.property.name')" prop="name">
         <i-input maxlength="10" show-word-limit name="name" v-model="model.name" block></i-input>
       </form-item>
+      <form-item :label="$t('app.application.enterprise.enterprise')" prop="enterpriseId">
+        <enterprise-select name="productCategoryId" v-model="model.enterpriseId" block></enterprise-select>
+      </form-item>
       <form-item :label="$t('app.application.growthProcess.productCategory')" prop="productCategoryId">
         <product-category-select name="productCategoryId" v-model="model.productCategoryId" block></product-category-select>
       </form-item>
@@ -39,16 +42,18 @@
   import produceProcessApi from '../../../../apis/application/produceProcess';
   import CommonCreateOrUpdateModal from '../../../mixins/CommonCreateOrUpdateModal';
   import ProductCategorySelect from '../productCategory/ProductCategorySelect';
+  import EnterpriseSelect from '../enterprise/EnterpriseSelect';
 
   export default {
     name: 'CreateOrUpdateModal',
-    components: { ProductCategorySelect },
+    components: { ProductCategorySelect, EnterpriseSelect },
     mixins: [CommonCreateOrUpdateModal],
     data () {
       return {
         api: produceProcessApi,
         rules: {
           name: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.common.property.name') }) }],
+          enterpriseId: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.enterprise.enterprise') }) }],
         },
         defaultModel: {
           items: []

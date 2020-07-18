@@ -7,6 +7,9 @@
             <form-item :label="$t('app.application.product.name')" prop="name">
               <i-input maxlength="200" show-word-limit name="name" v-model="model.name" block></i-input>
             </form-item>
+            <form-item :label="$t('app.application.enterprise.enterprise')" prop="enterpriseId">
+              <enterprise-select name="productCategoryId" v-model="model.enterpriseId" block></enterprise-select>
+            </form-item>
             <form-item :label="$t('app.application.product.specification')" prop="specification">
               <i-input name="specification" v-model="model.specification" block></i-input>
             </form-item>
@@ -86,6 +89,7 @@
           name: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.product.name') }) }],
           specification: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.product.specification') }) }],
           productCategoryId: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.product.productCategory') }) }],
+          enterpriseId: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.enterprise.enterprise') }) }],
           // produceProcessId: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.product.produceProcess') }) }],
           // growthProcessId: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.product.growthProcess') }) }],
           // factoryEnterpriseId: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.product.factoryEnterprise') }) }],

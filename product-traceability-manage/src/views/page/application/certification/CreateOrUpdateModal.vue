@@ -5,6 +5,9 @@
         <i-input maxlength="200"
                  show-word-limit name="name" v-model="model.name" block></i-input>
       </form-item>
+      <form-item :label="$t('app.application.enterprise.enterprise')" prop="enterpriseId">
+        <enterprise-select name="enterpriseId" v-model="model.enterpriseId" block></enterprise-select>
+      </form-item>
       <form-item :label="$t('app.application.certification.logo')" prop="logo">
         <picture-uploader name="logo" v-model="model.logo" block></picture-uploader>
       </form-item>
@@ -22,15 +25,18 @@
 <script>
   import certificationApi from '../../../../apis/application/certification';
   import CommonCreateOrUpdateModal from '../../../mixins/CommonCreateOrUpdateModal';
-
+  import EnterpriseSelect from '../enterprise/EnterpriseSelect';
+  
   export default {
     name: 'CreateOrUpdateModal',
+    components: {EnterpriseSelect},
     mixins: [CommonCreateOrUpdateModal],
     data () {
       return {
         api: certificationApi,
         rules: {
           name: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.common.property.name') }) }],
+          enterpriseId: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.enterprise.enterprise') }) }],
           logo: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.certification.logo') }) }],
           license: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.certification.license') }) }],
         }
