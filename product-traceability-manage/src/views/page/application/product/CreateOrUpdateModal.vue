@@ -39,7 +39,7 @@
               <pictures-uploader name="photos" v-model="model.photos" block></pictures-uploader>
             </form-item>
             <form-item :label="$t('app.application.product.video')" prop="video">
-              <input-file-uploader name="video" v-model="model.video" block></input-file-uploader>
+              <input-file-uploader name="video" :actionUrl="actionUrl" v-model="model.video" block></input-file-uploader>
             </form-item>
           </div>
         </tab-pane>
@@ -79,6 +79,8 @@
   import ProduceProcessSelect from '../produceProcess/ProduceProcessSelect';
   import GrowthProcessSelect from '../growthProcess/GrowthProcessSelect';
   import CertificationSelect from '../certification/CertificationSelect';
+  import store from '../../../../store';
+  const actionUrl = store.getters.baseUrl + '/file/upload_voice';
 
   export default {
     name: 'CreateOrUpdateModal',
@@ -88,6 +90,7 @@
       return {
         api: productApi,
         activeTab: 'baseInfo',
+        actionUrl: actionUrl,
         rules: {
           name: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.product.name') }) }],
           specification: [{ required: true, message: this.$t('core.validate.common.requiredFiled', { 0: this.$t('app.application.product.specification') }) }],

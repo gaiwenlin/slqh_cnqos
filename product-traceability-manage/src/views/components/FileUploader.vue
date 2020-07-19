@@ -72,6 +72,11 @@
         }
         this.$emit('input', filePath);
         this.dispatch('form-item', 'on-form-change', filePath);
+      },
+      onSuccess(data) {
+        if (data.msg != 'success') {
+          this.$Message.error(data.msg);
+        }
       }
     },
     created () {
