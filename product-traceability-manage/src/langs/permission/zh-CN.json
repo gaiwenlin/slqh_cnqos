@@ -1,7 +1,8 @@
 {
   "file": {
     "file": "文件",
-    "upload": "上传"
+    "upload": "上传图片",
+    "upload_voice": "上传视频"
   },
   "certification": {
     "certification": "证书",
