@@ -1,9 +1,9 @@
 <template>
-  <div class="page-wrap" :class="pageClasses">
+  <div class="page-wrap" :class="pageClasses" style="background:#ffffff;">
     <div class="page-header">
-      <a class="logo" href="javascript:void(0);">
+      <!-- <a class="logo" href="javascript:void(0);">
         <img src="./../../../assets/logo.png" alt="">
-      </a>
+      </a> -->
       <label class="page-header-title">食礼秦淮</label>
     </div>
     <div class="page-content">
@@ -28,7 +28,7 @@
         bottomNavigations: bottomMenus,
         bottomNavigationIndex: 0,
         transitionName: 'slide-left',
-        style: 'gray'
+        style: ''
       };
     },
     watch: {
@@ -90,8 +90,9 @@
   }
 
   .page-header {
-    background: #003A58;
-    color: #ffffff;
+    background: #ffffff;
+    color: #333333;
+    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,11 +115,13 @@
       font-family: PingFangSC-Regular;
       opacity: 0.9;
       user-select: none;
+      letter-spacing: 1px;
+      border-bottom: 2px solid #49A251;
     }
   }
 
   .page-content {
-    padding-top: $component-size + $content-padding * 2;
+    padding-top: $component-size + $content-padding;
     padding-bottom: 65px;
   }
 

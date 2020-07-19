@@ -16,6 +16,12 @@ export default {
       meta: { share: true },
       name: 'productBatchDetail',
       component: () => import('../../../views/page/application/productBatch/Detail')
+    },
+    {
+      path: 'detail_new',
+      meta: { share: true },
+      name: 'productBatchDetail_new',
+      component: () => import('../../../views/page/application/productBatch/detail_new')
     }
   ]
 };

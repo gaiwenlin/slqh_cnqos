@@ -39,3 +39,143 @@
 *{
   -webkit-overflow-scrolling: touch;
 }
+
+// 浮动
+.fr {
+  float: right;
+}
+.fl {
+  float: left;
+}
+.clearfix {
+  zoom: 1;
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+// 盒子
+$sp-size: 0;
+@while $sp-size <= 100 {
+  .m#{$sp-size} {
+    margin: 1px * $sp-size !important;
+  }
+  .mt#{$sp-size} {
+    margin-top: 1px * $sp-size !important;
+  }
+  .mb#{$sp-size} {
+    margin-bottom: 1px * $sp-size !important;
+  }
+  .ml#{$sp-size} {
+    margin-left: 1px * $sp-size !important;
+  }
+  .mr#{$sp-size} {
+    margin-right: 1px * $sp-size !important;
+  }
+  .p#{$sp-size} {
+    padding: 1px * $sp-size !important;
+  }
+  .pt#{$sp-size} {
+    padding-top: 1px * $sp-size !important;
+  }
+  .pb#{$sp-size} {
+    padding-bottom: 1px * $sp-size !important;
+  }
+  .pl#{$sp-size} {
+    padding-left: 1px * $sp-size !important;
+  }
+  .pr#{$sp-size} {
+    padding-right: 1px * $sp-size !important;
+  }
+  $sp-size: $sp-size+5
+}
+
+// 宽度
+$width-size: 0;
+@while $width-size <= 500 {
+  .w#{$width-size} {
+    display: inline-block;
+    width: 1px * $width-size !important;
+  }
+  $width-size: $width-size+50
+}
+
+// 字体
+$fz-size: 12;
+@while $fz-size <=34 {
+  .f#{$fz-size} {
+    font-size: 1px * $fz-size !important;
+  }
+  $fz-size: $fz-size+2;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-primary {
+  color: #409EFF;
+  &-o {
+    color: rgb(102, 177, 255);
+  }
+}
+
+.text-success {
+  color: #67C23A;
+  &-o {
+    color: #E1F3D8;
+  }
+}
+
+.text-warning {
+  color: #E6A23C;
+  &-o {
+    color: #FAECD8;
+  }
+}
+
+.text-danger {
+  color: #F56C6C;
+  &-o {
+    color: #FDE2E2;
+  }
+}
+
+.text-info {
+  color: #909399;
+  &-o {
+    color: #C0C4CC;
+  }
+}
+
+.text-del {
+  text-decoration: line-through;
+  color: #F56C6C;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
