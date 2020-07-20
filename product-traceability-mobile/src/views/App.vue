@@ -6,7 +6,13 @@
 
 <script>
   export default {
-    name: 'app'
+    name: 'app',
+    mounted() {
+      console.log(returnCitySN)
+    },
+    methods: {
+      
+    }
   };
 </script>
 
