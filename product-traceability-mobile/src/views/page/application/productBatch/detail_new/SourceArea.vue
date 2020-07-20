@@ -16,7 +16,7 @@
       </div>
       <template v-if="pictures.length">
         <div class="enterprise-sub">工厂图片</div>
-        <van-swipe :width="260" class="product-swiper" :show-indicators="false" indicator-color="black" v-if="model&&pictures.length>0">
+        <van-swipe :width="260" class="product-swiper" :loop="false" :show-indicators="false" indicator-color="black" v-if="model&&pictures.length>0">
           <van-swipe-item class="swiper-item" v-for="(picture,index) in pictures" :key="index">
             <van-image class="image-item" :src="changeImageUrl(picture)" fit="cover">
             </van-image>
@@ -44,7 +44,7 @@
         </van-row> -->
         <template v-if="steps.length">
           <div class="enterprise-sub">生长过程</div>
-          <van-swipe :width="260" class="product-swiper" :show-indicators="false" indicator-color="black" v-if="model&&pictures.length>0">
+          <van-swipe :width="260" class="product-swiper" :loop="false" :show-indicators="false" indicator-color="black" v-if="model&&pictures.length>0">
             <van-swipe-item class="swiper-item" v-for="(step,index) in steps" :key="index">
               <van-image class="image-item" :src="changeImageUrl(step.picture)" fit="cover">
               </van-image>

@@ -25,6 +25,34 @@
       <div class="product-video" v-if="model.product.video">
         <video controls :src="model.product.video|filePath"></video>
       </div>
+      <div class="comment-div" @click="show=true">写评论</div>
+      <van-popup v-model="show" round closeable
+        close-icon-position="top-left" position="bottom" 
+        :style="{ height: '200px' }">
+        <div class="comment">
+          写评论
+          <div class="comment-btn">评论</div>
+        </div>
+        <div>
+          <van-field
+            rows="4"
+            autosize
+            type="textarea"
+            placeholder="评论内容"
+          />
+        </div>
+        <div class="rate mb15">
+          评分
+          <van-rate
+            class="ml10"
+            :size="20"
+            color="#49A251"
+            void-icon="star"
+            void-color="#eee"
+          />
+        </div>
+      </van-popup>
+
     </div>
   </div>
 </template>
@@ -36,6 +64,11 @@
     name: 'Description',
     props: {
       model: null
+    },
+    data() {
+      return {
+        show: false
+      }
     },
     computed: {
       certifications () {
@@ -104,5 +137,46 @@
     .certification-item {
       padding: 10px;
     }
+  }
+  .comment-div {
+    position: fixed;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    bottom: 0;
+    left: 15px;
+    right: 15px;
+    font-size: 14px;
+    color: #49A251;
+    font-weight: bold;
+    background: #ffffff;
+    border-top: 1px solid #eee;
+  }
+  .comment {
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid #eee;
+    .comment-btn {
+      position: absolute;
+      color: #333333;
+      background: #49A251;
+      right: 20px;
+      top: 12px;
+      height: 24px;
+      line-height: 24px;
+      padding: 0 8px;
+      font-weight: 500;
+      color: #ffffff;
+    }
+  }
+  .rate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
   }
 </style>

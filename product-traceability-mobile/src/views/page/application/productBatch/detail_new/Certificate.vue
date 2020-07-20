@@ -3,7 +3,7 @@
     <div class="content-padding">
       <div class="mb10">证书及抽检报告</div>
       <template v-if="pictures.length">
-        <van-swipe :width="150" class="product-swiper" :show-indicators="false" indicator-color="black" v-if="model&&pictures.length>0">
+        <van-swipe :width="150" class="product-swiper" :loop="false" :show-indicators="false" indicator-color="black" v-if="model&&pictures.length>0">
           <van-swipe-item class="swiper-item" v-for="(picture,index) in pictures" :key="index">
             <van-image @click="preview(index)" class="image-item" :src="picture" fit="cover">
             </van-image>

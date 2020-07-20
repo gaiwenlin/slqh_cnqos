@@ -6,7 +6,7 @@
         </van-image>
       </van-swipe-item>
     </van-swipe>
-    <van-tabs class="tabs" v-model="activeTab" swipeable>
+    <van-tabs class="tabs" v-model="activeTab">
       <van-tab title="食品简介">
         <description :model="model"></description>
       </van-tab>
