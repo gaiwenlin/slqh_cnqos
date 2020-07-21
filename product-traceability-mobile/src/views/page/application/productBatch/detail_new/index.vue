@@ -27,6 +27,9 @@
         this.model = result;
         this.loading = false;
         this.loaded = true;
+      },
+      toBack() {
+
       }
     },
     created () {
@@ -40,6 +43,12 @@
           cid: returnCitySN.cid
         })
       }
+    },
+    mounted() {
+      // if (window.history && window.history.pushState) {
+      //   history.pushState(null, null, document.URL);
+      //   window.addEventListener('popstate', this.toBack, false);//false阻止默认事件
+      // }
     }
   };
 </script>

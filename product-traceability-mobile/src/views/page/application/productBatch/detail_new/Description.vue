@@ -113,7 +113,8 @@
           showIndex: true,
           loop: true,
           startPosition: index,
-          closeable: true
+          closeable: true,
+          closeOnPopstate:true
         });
       },
       addComment() {

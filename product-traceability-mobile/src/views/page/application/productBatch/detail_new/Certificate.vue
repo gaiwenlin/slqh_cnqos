@@ -22,7 +22,6 @@
     props: {
       model: null
     },
-    data() {},
     computed: {
       pictures () {
         let list =[];
@@ -44,10 +43,11 @@
           showIndex: true,
           loop: true,
           startPosition: index,
-          closeable: true
+          closeable: true,
+          closeOnPopstate:true
         });
       }
-    }
+    },
   };
 </script>
 

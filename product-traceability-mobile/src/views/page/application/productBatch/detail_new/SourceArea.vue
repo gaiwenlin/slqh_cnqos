@@ -110,7 +110,8 @@
           showIndex: true,
           loop: true,
           startPosition: index,
-          closeable: true
+          closeable: true,
+          closeOnPopstate:true
         });
       },
       // 获取企业详情
