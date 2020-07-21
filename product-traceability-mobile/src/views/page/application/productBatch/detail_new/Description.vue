@@ -25,18 +25,20 @@
       <div class="product-video" v-if="model.product.video">
         <video controls :src="model.product.video|filePath"></video>
       </div>
-      <div class="comment-div" @click="show=true">写评论</div>
+      <div class="comment-div" @click="addComment">写评论</div>
       <van-popup v-model="show" round closeable
         close-icon-position="top-left" position="bottom" 
         :style="{ height: '200px' }">
         <div class="comment">
           写评论
-          <div class="comment-btn">评论</div>
+          <div class="comment-btn" @click="confirmComment">评论</div>
         </div>
         <div>
           <van-field
+            v-model="form.submitComment"
             rows="4"
             autosize
+            ref="comment"
             type="textarea"
             placeholder="评论内容"
           />
@@ -44,6 +46,7 @@
         <div class="rate mb15">
           评分
           <van-rate
+            v-model="form.submitScore"
             class="ml10"
             :size="20"
             color="#49A251"
@@ -60,6 +63,7 @@
 <script>
   import { ImagePreview } from 'vant';
   import {changeImageUrl} from '../../../../../utils/prefixUtils'
+  import { addComment } from '../../../../../apis/application/productBatch';
   export default {
     name: 'Description',
     props: {
@@ -67,7 +71,14 @@
     },
     data() {
       return {
-        show: false
+        show: false,
+        form: {
+          productId: "",
+          cip: "",
+          cname: "",
+          submitScore: 0,
+          submitComment: "",
+        }
       }
     },
     computed: {
@@ -83,6 +94,17 @@
         return list;
       }
     },
+    mounted() {
+      if (returnCitySN) {
+        this.form = {
+          productId: Number(this.$route.query.id),
+          cip: returnCitySN.cip,
+          cname: returnCitySN.cname,
+          submitScore: "",
+          submitComment: "",
+        }
+      }
+    },
     methods: {
       changeImageUrl,
       preview (index) {
@@ -93,6 +115,22 @@
           startPosition: index,
           closeable: true
         });
+      },
+      addComment() {
+        this.show = true;
+        this.form.submitScore = 5;
+        this.form.submitComment = "";
+        this.$refs['comment'].focus();
+      },
+      confirmComment() {
+        if (!this.form.submitComment) {
+          this.$toast('评论内容不能为空')
+          return
+        }
+        addComment(this.form).then(res => {
+          this.show = false;
+          this.$toast.success('评论成功')
+        })
       }
     }
   };
