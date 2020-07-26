@@ -370,14 +370,14 @@ $(function () {
           }
         }
       },
-      legend: {
-        top: '0%',
-        data: ['好评率'],
-        textStyle: {
-          color: 'rgba(255,255,255,.5)',
-          fontSize: '12',
-        }
-      },
+      // legend: {
+      //   top: '0%',
+      //   data: ['好评率'],
+      //   textStyle: {
+      //     color: 'rgba(255,255,255,.5)',
+      //     fontSize: '12',
+      //   }
+      // },
       grid: {
         left: '10',
         top: '30',
@@ -409,6 +409,10 @@ $(function () {
         offset: 20,
       }],
       yAxis: [{
+        name: '%',
+        nameTextStyle: {
+          color: 'rgba(255,255,255,.6)'
+        },
         type: 'value',
         axisTick: { show: false },
         axisLine: {
@@ -488,7 +492,7 @@ $(function () {
 
       grid: {
         left: '0%',
-        top: '10px',
+        top: '30',
         right: '0%',
         bottom: '2%',
         containLabel: true
@@ -520,6 +524,10 @@ $(function () {
         },
       }],
       yAxis: [{
+        name: '%',
+        nameTextStyle: {
+          color: 'rgba(255,255,255,.6)'
+        },
         type: 'value',
         axisLabel: {
           //formatter: '{value} %'
