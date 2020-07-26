@@ -1,5 +1,11 @@
 export default [
   {
+    name: 'dashboard',
+    icon: 'home',
+    displayName: 'menu.dashboard',
+    path: '/application/dashboard',
+  },
+  {
     name: 'traceability',
     icon: 'traceability',
     displayName: 'menu.traceability',

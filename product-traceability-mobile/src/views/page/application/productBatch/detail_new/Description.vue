@@ -4,7 +4,7 @@
       <div class="mb10">产品名称</div>
       <div class="title-box">
         <span class="label">{{model.product.name}}</span>
-        <div class="btn">再次购买</div>
+        <a class="btn" href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA4MTY1ODY3Mw==#wechat_redirect">再次购买</a>
       </div>
       <div class="product-description" v-if="model.product.description">{{model.product.description}}</div>
       <template v-if="certifications.length">      
@@ -12,7 +12,7 @@
         <div>认证信息</div>
         <van-row class="certification-wrap">
           <van-col class="certification-item" span="6" v-for="(certification, index) in certifications" :key="index">
-            <van-image @click="preview(index)" :src="certification" fit="cover" lazy-load>
+            <van-image @click="preview(certification, index)" :src="certification" fit="contain" lazy-load>
             </van-image>
           </van-col>
         </van-row>
@@ -22,9 +22,14 @@
         <div>食用方法</div>
         <div class="product-description">{{model.product.edibleMethod}}</div>
       </template>
-      <div class="product-video" v-if="model.product.video">
-        <video controls :src="model.product.video|filePath"></video>
-      </div>
+      <template v-if="model.product.video">
+        <van-divider />
+        <div>视频介绍</div>
+        <div class="product-video">
+          <video ref='video' controls preload="metadata" :src="model.product.video|filePath"></video>
+        </div>
+      </template>
+      
       <div class="comment-div" @click="addComment">写评论</div>
       <van-popup v-model="show" round closeable
         close-icon-position="top-left" position="bottom" 
@@ -67,7 +72,8 @@
   export default {
     name: 'Description',
     props: {
-      model: null
+      model: null,
+      active: false
     },
     data() {
       return {
@@ -82,6 +88,9 @@
       }
     },
     computed: {
+      pictures () {
+        return this.model.product.photos.split(',');
+      },
       certifications () {
         let list =[];
         if(this.model.product.certifications){
@@ -94,7 +103,17 @@
         return list;
       }
     },
+    watch: {
+      active(newVal) {
+        if(!newVal) {
+          this.$refs['video'] && this.$refs['video'].pause();
+        }
+      }
+    },
     mounted() {
+      this.$nextTick(() => {
+        this.$refs['video'].poster = this.changeImageUrl(this.pictures[0]);
+      })
       if (returnCitySN) {
         this.form = {
           productId: Number(this.$route.query.id),
@@ -107,21 +126,32 @@
     },
     methods: {
       changeImageUrl,
-      preview (index) {
-        ImagePreview({
-          images: this.certifications,
-          showIndex: true,
-          loop: true,
-          startPosition: index,
-          closeable: true,
-          closeOnPopstate:true
-        });
+      preview (src, index) {
+        if (navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1) {
+          if (wx && wx.previewImage) {
+            wx.previewImage({
+                current: src, // 当前显示图片的http链接
+                urls: this.certifications // 需要预览的图片http链接列表
+            });
+          }
+        } else {
+          ImagePreview({
+            images: this.certifications,
+            showIndex: true,
+            loop: true,
+            startPosition: index,
+            closeable: true,
+            closeOnPopstate:true
+          });
+        }
       },
       addComment() {
         this.show = true;
         this.form.submitScore = 5;
         this.form.submitComment = "";
-        this.$refs['comment'].focus();
+        this.$nextTick(() => {
+          this.$refs['comment'].focus();
+        })
       },
       confirmComment() {
         if (!this.form.submitComment) {
@@ -143,6 +173,9 @@
     margin-top: $component-span;
     video {
       width: 100%;
+    }
+    video::-webkit-media-controls {
+      box-shadow: none;
     }
   }
   .title-box {

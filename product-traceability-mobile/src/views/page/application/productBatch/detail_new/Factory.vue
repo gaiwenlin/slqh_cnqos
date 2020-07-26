@@ -17,8 +17,8 @@
       <template v-if="pictures.length">
         <div class="enterprise-sub">工厂图片</div>
         <van-swipe :width="260" class="product-swiper" :loop="false" :show-indicators="false" indicator-color="black" v-if="model&&pictures.length>0">
-          <van-swipe-item class="swiper-item" v-for="(picture,index) in pictures" :key="index">
-            <van-image class="image-item" :src="changeImageUrl(picture)" fit="cover">
+          <van-swipe-item class="swiper-item" v-for="(item,index) in pictures" :key="index">
+            <van-image class="image-item" @click="preview(item.picture, index, 1)" :src="item.picture" fit="cover" lazy-load>
             </van-image>
           </van-swipe-item>
         </van-swipe>
@@ -44,9 +44,9 @@
         </van-row> -->
         <template v-if="steps.length">
           <div class="enterprise-sub">加工流程</div>
-          <van-swipe :width="260" class="product-swiper" :loop="false" :show-indicators="false" indicator-color="black" v-if="model&&pictures.length>0">
+          <van-swipe :width="260" class="product-swiper" :loop="false" :show-indicators="false" indicator-color="black" v-if="model&&steps.length>0">
             <van-swipe-item class="swiper-item" v-for="(step,index) in steps" :key="index">
-              <van-image class="image-item" :src="changeImageUrl(step.picture)" fit="cover">
+              <van-image class="image-item" @click="preview(step.picture, index, 2)" :src="step.picture" fit="cover" lazy-load>
               </van-image>
               <div class="swiper-desc">{{step.name}}</div>
             </van-swipe-item>
@@ -82,18 +82,26 @@
     },
     computed: {
       pictures () {
+        let pictures = [];
         if(this.enterpriseData.photos){
-          return this.enterpriseData.photos.split(',');
-        }else{
-          return [];
+          this.enterpriseData.photos.split(',').forEach(item => {
+            pictures.push({
+              name: '',
+              picture: changeImageUrl(item)
+            })
+          })
         }
+        return pictures;
       },
       steps(){
         let list =[];
-        if(this.model.product.growthProcess.steps){
+        if(this.model.product.produceProcess.steps){
           this.model.product.produceProcess.steps.forEach(item=>{
-            if(item.name||item.picture){
-              list.push(item);
+            if(item.picture){
+              list.push({
+                name: item.name,
+                picture: changeImageUrl(item.picture)
+              });
             }
           })
         }
@@ -105,15 +113,34 @@
     },
     methods: {
       changeImageUrl,
-      preview (index) {
-        ImagePreview({
-          images: this.certifications,
-          showIndex: true,
-          loop: true,
-          startPosition: index,
-          closeable: true,
-          closeOnPopstate:true
-        });
+      preview (src, index, type) {
+        let pictures = [];
+        if (type == 1) {
+          this.pictures.forEach(item => {
+            pictures.push(item.picture)
+          })
+        } else {
+          this.steps.forEach(item => {
+            pictures.push(item.picture)
+          })
+        }
+        if (navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1) {
+          if (wx && wx.previewImage) {
+            wx.previewImage({
+              current: src, // 当前显示图片的http链接
+              urls: pictures // 需要预览的图片http链接列表
+            });
+          }
+        } else {
+          ImagePreview({
+            images: pictures,
+            showIndex: true,
+            loop: true,
+            startPosition: index,
+            closeable: true,
+            closeOnPopstate:true
+          });
+        }
       },
       // 获取企业详情
       getEnterpriseInfo() {
@@ -150,6 +177,7 @@
         align-items: center;
         position: relative;
         .image-item{
+          height: 160px;
           width: 90%;
         }
         .swiper-desc {

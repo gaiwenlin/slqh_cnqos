@@ -106,7 +106,6 @@
         };
       },
       qrcodeUrl () {
-        console.log(appConfig.domain + '/app/mobile/#productBatch/detail?id=' + this.model?.id);
         return appConfig.domain + '/app/mobile/#productBatch/detail?id=' + this.model?.id;
       },
       printTexts () {
@@ -167,7 +166,6 @@
         }
       },
       downloadFile(){
-        console.log(this.model);
         if(this.model && this.model.qrCode){
           const list = this.model.qrCode.split('/');
           if(list.length>0){

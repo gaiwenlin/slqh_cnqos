@@ -12,13 +12,13 @@ export default {
       component: () => import('../../../views/page/application/productBatch/Index')
     },
     {
-      path: 'detail',
+      path: 'detail_old',
       meta: { share: true },
       name: 'productBatchDetail',
       component: () => import('../../../views/page/application/productBatch/Detail')
     },
     {
-      path: 'detail_new',
+      path: 'detail',
       meta: { share: true },
       name: 'productBatchDetail_new',
       component: () => import('../../../views/page/application/productBatch/detail_new')

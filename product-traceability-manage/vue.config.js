@@ -57,11 +57,11 @@ module.exports = {
     // it can be accessed in index.html to inject the correct title.
     name: name,
     externals: {
-      'Vue': 'Vue',
-      'vue': 'Vue',
-      'vuex': 'Vuex',
-      'vue-router': 'VueRouter',
-      'axios': 'axios',
+      // 'Vue': 'Vue',
+      // 'vue': 'Vue',
+      // 'vuex': 'Vuex',
+      // 'vue-router': 'VueRouter',
+      // 'axios': 'axios',
       'moment': 'moment'
     },
     resolve: {

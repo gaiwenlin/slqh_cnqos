@@ -41,10 +41,10 @@ module.exports = {
   },
   configureWebpack: (config) => {
     config.externals = {
-      'Vue': 'Vue',
-      'vue': 'Vue',
-      'vuex': 'Vuex',
-      'vue-router': 'VueRouter'
+      // 'Vue': 'Vue',
+      // 'vue': 'Vue',
+      // 'vuex': 'Vuex',
+      // 'vue-router': 'VueRouter'
     };
   },
   chainWebpack (config) {

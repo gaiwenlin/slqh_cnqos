@@ -2,13 +2,13 @@
   <div class="product-base-info">
     <van-swipe class="product-swiper" :autoplay="3000" indicator-color="black" v-if="pictures.length>0">
       <van-swipe-item class="swiper-item" v-for="(picture,index) in pictures" :key="index">
-        <van-image class="image-item" :src="changeImageUrl(picture)" fit="cover" lazy-load>
+        <van-image class="image-item" :src="changeImageUrl(picture)" fit="contain" lazy-load>
         </van-image>
       </van-swipe-item>
     </van-swipe>
-    <van-tabs class="tabs" v-model="activeTab">
-      <van-tab title="食品简介">
-        <description :model="model"></description>
+    <van-tabs class="tabs" v-model="activeTab" duration="0.6" swipeable>
+      <van-tab title="产品简介">
+        <description :model="model" :active="activeTab == 0"></description>
       </van-tab>
       <van-tab title="原产地信息">
         <source-area :model="model"></source-area>
@@ -62,7 +62,7 @@
       }
     },
     methods: {
-      changeImageUrl,
+      changeImageUrl
     }
   };
 </script>
@@ -83,20 +83,21 @@
       padding: 10px 0;
     }
   }
-</style>
-<style lang="scss" scoped>
   .product-swiper {
     background: #FFFFFF;
     height: 212px;
     .swiper-item{
       display: flex;
       align-items: center;
-      justify-content: center;
+      // justify-content: center;
       .image-item{
+        height: 212px;
         width: 100%;
       }
     }
   }
+</style>
+<style lang="scss" scoped>
   .vanImage{
     width:100px ;
     height: 100px;

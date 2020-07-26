@@ -53,7 +53,6 @@ const session = {
     getCurrentLoginInformation ({ state }) {
       return new Promise((resolve, reject) => {
         sessionApi.getCurrentLoginInformation().then((result) => {
-          console.log(result);
           if(result){
             if(result.user){
               state.user = result.user;

@@ -2,10 +2,11 @@
   <div class="certificate">
     <div class="content-padding">
       <div class="mb10">证书及抽检报告</div>
+      <div v-if="model.product.standardDescription" style="color:#333;" class="f14 mb10">{{model.product.standardDescription}}</div>
       <template v-if="pictures.length">
         <van-swipe :width="150" class="product-swiper" :loop="false" :show-indicators="false" indicator-color="black" v-if="model&&pictures.length>0">
           <van-swipe-item class="swiper-item" v-for="(picture,index) in pictures" :key="index">
-            <van-image @click="preview(index)" class="image-item" :src="picture" fit="cover">
+            <van-image @click="preview(picture, index)" class="image-item" :src="picture" fit="contain" lazy-load>
             </van-image>
           </van-swipe-item>
         </van-swipe>
@@ -25,6 +26,11 @@
     computed: {
       pictures () {
         let list =[];
+        if(this.model.testReportPicture){
+          this.model.testReportPicture.split(',').forEach(item=>{
+              list.push(changeImageUrl(item));
+          })
+        }
         if(this.model.product.certifications){
           this.model.product.certifications.forEach(item=>{
             if(item.license){
@@ -37,15 +43,24 @@
     },
     methods: {
       changeImageUrl,
-      preview (index) {
-        ImagePreview({
-          images: this.pictures,
-          showIndex: true,
-          loop: true,
-          startPosition: index,
-          closeable: true,
-          closeOnPopstate:true
-        });
+      preview (src, index) {
+        if (navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1) {
+          if (wx && wx.previewImage) {
+            wx.previewImage({
+                current: src, // 当前显示图片的http链接
+                urls: this.pictures // 需要预览的图片http链接列表
+            });
+          }
+        } else {
+          ImagePreview({
+            images: this.pictures,
+            showIndex: true,
+            loop: true,
+            startPosition: index,
+            closeable: true,
+            closeOnPopstate:true
+          });
+        }
       }
     },
   };
