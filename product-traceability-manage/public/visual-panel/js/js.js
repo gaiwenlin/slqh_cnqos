@@ -16,7 +16,7 @@ $(function () {
     if (res.data.data.items.length) {
       res.data.data.items.forEach(item => {
         month.push(item.month + '月')
-        count.push(item.count)
+        count.push(item.rate)
       })
     }
     echarts_4(month, count);
@@ -60,7 +60,7 @@ $(function () {
     if (res.data.data.items.length) {
       res.data.data.items.forEach(item => {
         name.push(item.name)
-        count.push(item.count)
+        count.push(item.rate)
       })
     }
     echarts_6(name, count);
@@ -269,6 +269,7 @@ $(function () {
       //  backgroundColor: '#00265f',
       tooltip: {
         trigger: 'axis',
+        formatter: '{b} <br />{a} {c}',
         axisPointer: {
           type: 'shadow'
         }
@@ -335,6 +336,7 @@ $(function () {
         }
       }],
       series: [{
+        name: '数量',
         type: 'bar',
         data: count,
         barWidth: '35%', //柱子宽度
@@ -364,6 +366,7 @@ $(function () {
     option = {
       tooltip: {
         trigger: 'axis',
+        formatter: '{b} <br />{a} {c}%',
         axisPointer: {
           lineStyle: {
             color: '#dddc6b'
@@ -485,6 +488,7 @@ $(function () {
       //  backgroundColor: '#00265f',
       tooltip: {
         trigger: 'axis',
+        formatter: '{b} <br />{a} {c}%',
         axisPointer: {
           type: 'shadow'
         }
@@ -555,6 +559,7 @@ $(function () {
         }
       }],
       series: [{
+        name: '好评率',
         type: 'line',
         data: count,
         barWidth: '35%', //柱子宽度
