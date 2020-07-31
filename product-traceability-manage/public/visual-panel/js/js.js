@@ -4,67 +4,85 @@ $(function () {
   // echarts_2();
   axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
   // 获取月度好评
-  axios({
-    method: 'post',
-    url: 'http://slqh.cnqos.com/api/log/operate/monthDistribution',
-    headers: {
-      Authorization: location.search.replace('?token=', ''),
-    }
-  }).then(res => {
-    let month = [];
-    let count = [];
-    if (res.data.data.items.length) {
-      res.data.data.items.forEach(item => {
-        month.push(item.month + '月')
-        count.push(item.rate)
-      })
-    }
-    echarts_4(month, count);
-  });
+  function getMonthDistribution() {
+    axios({
+      method: 'post',
+      url: 'http://slqh.cnqos.com/api/log/operate/monthDistribution',
+      headers: {
+        Authorization: location.search.replace('?token=', ''),
+      }
+    }).then(res => {
+      let month = [];
+      let count = [];
+      if (res.data.data.items.length) {
+        res.data.data.items.forEach(item => {
+          month.push(item.month + '月')
+          count.push(item.rate)
+        })
+      }
+      echarts_4(month, count);
+      setTimeout(() => {
+        getMonthDistribution()
+      }, 20000)
+    });
+  }
+
+  getMonthDistribution();
+  
   // 产品类别销售数量分布
-  axios({
-    method: 'post',
-    url: 'http://slqh.cnqos.com/api/log/scan/productCategory',
-    // /log/operate/productDistribution
-    // api/log/scan/distribution
-    // api/log/scan/productCategory
-    headers: {
-      Authorization: location.search.replace('?token=', ''),
-    }
-  }).then(res => {
-    let name = [];
-    let count = [];
-    
-    if (res.data.data.items.length) {
-      res.data.data.items.forEach(item => {
-        name.push(item.name)
-        count.push(item.count)
-      })
-    }
-    echarts_5(name, count);
-  });
+  function getProductCategory() {
+    axios({
+      method: 'post',
+      url: 'http://slqh.cnqos.com/api/log/scan/productCategory',
+      headers: {
+        Authorization: location.search.replace('?token=', ''),
+      }
+    }).then(res => {
+      let name = [];
+      let count = [];
+      
+      if (res.data.data.items.length) {
+        res.data.data.items.forEach(item => {
+          name.push(item.name)
+          count.push(item.count)
+        })
+      }
+      echarts_5(name, count);
+      setTimeout(() => {
+        getProductCategory()
+      }, 20000)
+    });
+  }
+  
+  getProductCategory()
+  
   // 产品好评率
-  axios({
-    method: 'post',
-    url: 'http://slqh.cnqos.com/api/log/operate/productDistribution',
-    // /log/operate/productDistribution
-    // api/log/scan/distribution
-    // api/log/scan/productCategory
-    headers: {
-      Authorization: location.search.replace('?token=', ''),
-    }
-  }).then(res => {
-    let name = [];
-    let count = [];
-    
-    if (res.data.data.items.length) {
-      res.data.data.items.forEach(item => {
-        name.push(item.name)
-        count.push(item.rate)
-      })
-    }
-    echarts_6(name, count);
-  });
+  function getProductDistribution() {
+    axios({
+      method: 'post',
+      url: 'http://slqh.cnqos.com/api/log/operate/productDistribution',
+      headers: {
+        Authorization: location.search.replace('?token=', ''),
+      }
+    }).then(res => {
+      let name = [];
+      let count = [];
+      
+      if (res.data.data.items.length) {
+        res.data.data.items.forEach(item => {
+          name.push(item.name)
+          count.push(item.rate)
+        })
+      }
+      echarts_6(name, count);
+      setTimeout(() => {
+        getProductDistribution()
+      }, 20000)
+    });
+  }
+
+  getProductDistribution()
+  
   // echarts_31();
   // echarts_32();
   // echarts_33();

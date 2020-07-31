@@ -1,27 +1,33 @@
 
 $(function () {
-  axios({
-    method: 'post',
-    url: 'http://slqh.cnqos.com/api/log/scan/distribution',
-    // /log/operate/productDistribution
-    // api/log/scan/distribution
-    // api/log/scan/productCategory
-    headers: {
-      Authorization: location.search.replace('?token=', ''),
-    }
-  }).then(res => {
-    let data = [];
-    if (res.data.data.items.length) {
-      document.getElementById('counter').innerText = res.data.data.total;
-      res.data.data.items.forEach(item => {
-        data.push({
-          name: item.cname,
-          value: item.count
+  function getData() {
+    axios({
+      method: 'post',
+      url: 'http://slqh.cnqos.com/api/log/scan/distribution',
+      // /log/operate/productDistribution
+      // api/log/scan/distribution
+      // api/log/scan/productCategory
+      headers: {
+        Authorization: location.search.replace('?token=', ''),
+      }
+    }).then(res => {
+      let data = [];
+      if (res.data.data.items.length) {
+        document.getElementById('counter').innerText = res.data.data.total;
+        res.data.data.items.forEach(item => {
+          data.push({
+            name: item.cname,
+            value: item.count
+          })
         })
-      })
-    }
-    map(data);
-  });
+      }
+      map(data);
+      setTimeout(() => {
+        getData()
+      }, 20000)
+    });
+  }
+  getData()
   // map();
   function map(data) {
     // 基于准备好的dom，初始化echarts实例
