@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <a class="btn" :href="'./visual-panel/index.html?fullscreen=1&token=' + token" target="_blank">开启大屏</a>
+    <a class="btn" :href="'./visual-panel/index.html?fullscreen=1&token=' + token" target="_blank">开启全屏</a>
     <iframe :src="'./visual-panel/index.html?token=' + token" frameborder="0"></iframe>
   </div>
 </template>
