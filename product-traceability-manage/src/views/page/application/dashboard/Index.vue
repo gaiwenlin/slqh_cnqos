@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <!-- <VisualPanel /> -->
+    <a class="btn" :href="'./visual-panel/index.html?fullscreen=1&token=' + token" target="_blank">开启大屏</a>
     <iframe :src="'./visual-panel/index.html?token=' + token" frameborder="0"></iframe>
   </div>
 </template>
@@ -29,5 +29,19 @@ export default {
   .dashboard {
     margin-left: -15px;
     margin-right: -10px;
+    position: relative;
+    .btn {
+      position: absolute;
+      right: 10px;
+      top: -25px;
+      font-size: 14px;
+      z-index: 100;
+      color: #333;
+      user-select: none;
+      &:hover {
+        cursor: pointer;
+        color: #07c160;
+      }
+    }
   }
 </style>
