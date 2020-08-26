@@ -23,12 +23,6 @@
     "minor": "npm version minor && npm run tag",
     "patch": "npm version patch && npm run tag"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "lint-staged": {
     "src/**/*.{js,ts,vue}": [
       "npm run lint:fix",

@@ -409,7 +409,7 @@ $(function () {
 
       xAxis: [{
         type: 'category',
-        boundaryGap: false,
+        // boundaryGap: false,
         axisLabel: {
           textStyle: {
             color: "rgba(255,255,255,.6)",
@@ -456,34 +456,37 @@ $(function () {
       series: [
         {
           name: '好评率',
-          type: 'line',
-          smooth: true,
-          symbol: 'circle',
-          symbolSize: 5,
-          showSymbol: false,
-          lineStyle: {
-            normal: {
-              color: '#0184d5',
-              width: 2
-            }
-          },
-          areaStyle: {
-            normal: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                offset: 0,
-                color: 'rgba(1, 132, 213, 0.4)'
-              }, {
-                offset: 0.8,
-                color: 'rgba(1, 132, 213, 0.1)'
-              }], false),
-              shadowColor: 'rgba(0, 0, 0, 0.1)',
-            }
-          },
+          type: 'bar',
+          barWidth: '35%', //柱子宽度
+          // smooth: true,
+          // symbol: 'circle',
+          // symbolSize: 5,
+          // showSymbol: false,
+          // lineStyle: {
+          //   normal: {
+          //     color: '#0184d5',
+          //     width: 2
+          //   }
+          // },
+          // areaStyle: {
+          //   normal: {
+          //     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+          //       offset: 0,
+          //       color: 'rgba(1, 132, 213, 0.4)'
+          //     }, {
+          //       offset: 0.8,
+          //       color: 'rgba(1, 132, 213, 0.1)'
+          //     }], false),
+          //     shadowColor: 'rgba(0, 0, 0, 0.1)',
+          //   }
+          // },
           itemStyle: {
             normal: {
               color: '#0184d5',
-              borderColor: 'rgba(221, 220, 107, .1)',
-              borderWidth: 12
+              // borderColor: 'rgba(221, 220, 107, .1)',
+              // borderWidth: 12
+              opacity: 1,
+              barBorderRadius: 5,
             }
           },
           data: count
