@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "awe-dnd": "^0.3.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "canknow-core": "^3.1.1",
     "canknow-icon": "^3.1.9",
     "canknow-ui": "^2.1.17",
