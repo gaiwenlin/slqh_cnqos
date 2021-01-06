@@ -23,7 +23,7 @@
     "patch": "npm version patch && npm run tag"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "canknow-core": "^3.0.5",
     "canknow-icon": "^3.1.8",
     "canknow-ui-core": "^7.2.7",
